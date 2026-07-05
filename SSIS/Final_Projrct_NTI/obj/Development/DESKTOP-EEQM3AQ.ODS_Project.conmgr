@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-EEQM3AQ.ODS_Project"
+  DTS:DTSID="{F16712B6-5E61-4442-9680-6470C662CBED}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-EEQM3AQ;Initial Catalog=ODS_Project;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Final_Projrct_NTI-{F16712B6-5E61-4442-9680-6470C662CBED}DESKTOP-EEQM3AQ.ODS_Project;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

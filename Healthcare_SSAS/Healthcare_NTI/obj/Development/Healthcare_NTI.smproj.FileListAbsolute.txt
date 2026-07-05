@@ -1,0 +1,8 @@
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\bin\Model.asdatabase
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\bin\Model.deploymenttargets
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\bin\Model.deploymentoptions
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\obj\Development\Healthcare_NTI.smproj.AssemblyReference.cache
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\obj\Development\Healthcare_NTI.smproj.CoreCompileInputs.cache
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\obj\Development\Model.asdatabase
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\obj\Development\Model.deploymentoptions
+C:\Users\EL11_gazy\source\repos\Healthcare_NTI\Healthcare_NTI\obj\Development\Model.deploymenttargets

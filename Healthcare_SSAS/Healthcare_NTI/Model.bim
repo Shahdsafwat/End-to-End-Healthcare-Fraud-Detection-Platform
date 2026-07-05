@@ -1,0 +1,1305 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare",
+        "connectionString": "Provider=SQLOLEDB;Data Source=DESKTOP-EEQM3AQ;Initial Catalog=DWH_Healthcare;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "BRIDGE_CLAIM_DIAGNOSIS",
+        "columns": [
+          {
+            "name": "ClaimID",
+            "dataType": "string",
+            "sourceColumn": "ClaimID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DiagnosisKey",
+            "dataType": "int64",
+            "sourceColumn": "DiagnosisKey",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "BRIDGE_CLAIM_DIAGNOSIS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[BRIDGE_CLAIM_DIAGNOSIS].*   FROM [dbo].[BRIDGE_CLAIM_DIAGNOSIS] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Distinct Count of DiagnosisKey",
+            "expression": "DISTINCTCOUNT([DiagnosisKey])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[BRIDGE_CLAIM_DIAGNOSIS].*   FROM [dbo].[BRIDGE_CLAIM_DIAGNOSIS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "BRIDGE_CLAIM_DIAGNOSIS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "BRIDGE_CLAIM_PROCEDURE",
+        "columns": [
+          {
+            "name": "ClaimID",
+            "dataType": "string",
+            "sourceColumn": "ClaimID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ProcedureKey",
+            "dataType": "int64",
+            "sourceColumn": "ProcedureKey",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "BRIDGE_CLAIM_PROCEDURE",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[BRIDGE_CLAIM_PROCEDURE].*   FROM [dbo].[BRIDGE_CLAIM_PROCEDURE] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[BRIDGE_CLAIM_PROCEDURE].*   FROM [dbo].[BRIDGE_CLAIM_PROCEDURE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "BRIDGE_CLAIM_PROCEDURE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_DATE",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "Date_key",
+            "dataType": "int64",
+            "sourceColumn": "Date_key",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Date",
+            "formatString": "General Date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "formatString": "0.00",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month_Name",
+            "dataType": "string",
+            "sourceColumn": "Month_Name",
+            "sortByColumn": "Month",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Day_Name",
+            "dataType": "string",
+            "sourceColumn": "Day_Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Day_Of_Week",
+            "dataType": "int64",
+            "sourceColumn": "Day_Of_Week",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Is_Weekend",
+            "dataType": "boolean",
+            "sourceColumn": "Is_Weekend",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_DATE",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_DATE].*   FROM [dbo].[DIM_DATE] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_DATE].*   FROM [dbo].[DIM_DATE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_DATE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_DIAGNOSIS",
+        "columns": [
+          {
+            "name": "DiagnosisKey",
+            "dataType": "int64",
+            "sourceColumn": "DiagnosisKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DiagnosisCode",
+            "dataType": "string",
+            "sourceColumn": "DiagnosisCode",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DiagnosisDescription",
+            "dataType": "string",
+            "sourceColumn": "DiagnosisDescription",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_DIAGNOSIS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_DIAGNOSIS].*   FROM [dbo].[DIM_DIAGNOSIS] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_DIAGNOSIS].*   FROM [dbo].[DIM_DIAGNOSIS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_DIAGNOSIS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_FRAUD",
+        "columns": [
+          {
+            "name": "id_Fraud",
+            "dataType": "int64",
+            "sourceColumn": "id_Fraud",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PotentialFraud",
+            "dataType": "string",
+            "sourceColumn": "PotentialFraud",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Claim_Type",
+            "dataType": "string",
+            "sourceColumn": "Claim_Type",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Claim Type Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH(",
+              "    UPPER([Claim_Type]),",
+              "    \"IP\", \"Inpatient\",",
+              "    \"OP\", \"Outpatient\",",
+              "    [Claim_Type]",
+              ")"
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_FRAUD",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_FRAUD].*   FROM [dbo].[DIM_FRAUD] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_FRAUD].*   FROM [dbo].[DIM_FRAUD] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_FRAUD"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_GEN_RAC",
+        "columns": [
+          {
+            "name": "id_gc",
+            "dataType": "int64",
+            "sourceColumn": "id_gc",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Race",
+            "dataType": "string",
+            "sourceColumn": "Race",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "race_num",
+            "dataType": "int64",
+            "sourceColumn": "race_num",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_GEN_RAC",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_GEN_RAC].*   FROM [dbo].[DIM_GEN_RAC] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_GEN_RAC].*   FROM [dbo].[DIM_GEN_RAC] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_GEN_RAC"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_LOCATION",
+        "columns": [
+          {
+            "name": "id_location",
+            "dataType": "int64",
+            "sourceColumn": "id_location",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "State",
+            "dataType": "int64",
+            "sourceColumn": "State",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_LOCATION",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_LOCATION].*   FROM [dbo].[DIM_LOCATION] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_LOCATION].*   FROM [dbo].[DIM_LOCATION] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_LOCATION"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PATIENT",
+        "columns": [
+          {
+            "name": "PatientKey",
+            "dataType": "int64",
+            "sourceColumn": "PatientKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RenalDiseaseIndicator",
+            "dataType": "string",
+            "sourceColumn": "RenalDiseaseIndicator",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Alzheimer",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Alzheimer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Heartfailure",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Heartfailure",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_KidneyDisease",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_KidneyDisease",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Cancer",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Cancer",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_ObstrPulmonary",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_ObstrPulmonary",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Depression",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Depression",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Diabetes",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Diabetes",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_IschemicHeart",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_IschemicHeart",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Osteoporasis",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Osteoporasis",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_Rheumatoidarthritis",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_Rheumatoidarthritis",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ChronicCond_stroke",
+            "dataType": "string",
+            "sourceColumn": "ChronicCond_stroke",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PATIENT",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PATIENT].*   FROM [dbo].[DIM_PATIENT] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PATIENT].*   FROM [dbo].[DIM_PATIENT] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PATIENT"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PHYSICIAN",
+        "columns": [
+          {
+            "name": "PhysicianKey",
+            "dataType": "int64",
+            "sourceColumn": "PhysicianKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "AttendingPhysician",
+            "dataType": "string",
+            "sourceColumn": "AttendingPhysician",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "OperatingPhysician",
+            "dataType": "string",
+            "sourceColumn": "OperatingPhysician",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "OtherPhysician",
+            "dataType": "string",
+            "sourceColumn": "OtherPhysician",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PHYSICIAN",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PHYSICIAN].*   FROM [dbo].[DIM_PHYSICIAN] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PHYSICIAN].*   FROM [dbo].[DIM_PHYSICIAN] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PHYSICIAN"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PROCEDURE",
+        "columns": [
+          {
+            "name": "ProcedureKey",
+            "dataType": "int64",
+            "sourceColumn": "ProcedureKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ProcedureCode",
+            "dataType": "string",
+            "sourceColumn": "ProcedureCode",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ProcedureDescription",
+            "dataType": "string",
+            "sourceColumn": "ProcedureDescription",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PROCEDURE",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DIM_PROCEDURE].*   FROM [dbo].[DIM_PROCEDURE] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DIM_PROCEDURE].*   FROM [dbo].[DIM_PROCEDURE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PROCEDURE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "FACT_CLAIMS",
+        "columns": [
+          {
+            "name": "fact_id",
+            "dataType": "int64",
+            "sourceColumn": "fact_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ClaimID",
+            "dataType": "string",
+            "sourceColumn": "ClaimID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "BeneID",
+            "dataType": "string",
+            "sourceColumn": "BeneID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Provider",
+            "dataType": "string",
+            "sourceColumn": "Provider",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "PatientKey",
+            "dataType": "int64",
+            "sourceColumn": "PatientKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PhysicianKey",
+            "dataType": "int64",
+            "sourceColumn": "PhysicianKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "id_gc",
+            "dataType": "int64",
+            "sourceColumn": "id_gc",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "id_location",
+            "dataType": "int64",
+            "sourceColumn": "id_location",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "id_Fraud",
+            "dataType": "int64",
+            "sourceColumn": "id_Fraud",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ClaimStart_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "ClaimStart_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ClaimEnd_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "ClaimEnd_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Admission_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "Admission_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Discharge_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "Discharge_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Birth_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "Birth_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Death_DateKey",
+            "dataType": "int64",
+            "sourceColumn": "Death_DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "InscClaimAmtReimbursed",
+            "dataType": "double",
+            "sourceColumn": "InscClaimAmtReimbursed",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "DeductibleAmtPaid",
+            "dataType": "double",
+            "sourceColumn": "DeductibleAmtPaid",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "NoOfMonths_PartACov",
+            "dataType": "int64",
+            "sourceColumn": "NoOfMonths_PartACov",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NoOfMonths_PartBCov",
+            "dataType": "int64",
+            "sourceColumn": "NoOfMonths_PartBCov",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IPAnnualReimbursementAmt",
+            "dataType": "double",
+            "sourceColumn": "IPAnnualReimbursementAmt",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "IPAnnualDeductibleAmt",
+            "dataType": "double",
+            "sourceColumn": "IPAnnualDeductibleAmt",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "OPAnnualReimbursementAmt",
+            "dataType": "double",
+            "sourceColumn": "OPAnnualReimbursementAmt",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "OPAnnualDeductibleAmt",
+            "dataType": "double",
+            "sourceColumn": "OPAnnualDeductibleAmt",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_CLAIMS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[FACT_CLAIMS].*   FROM [dbo].[FACT_CLAIMS] ",
+              "dataSource": "SqlServer DESKTOP-EEQM3AQ DWH_Healthcare"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Distinct Count of BeneID",
+            "expression": "DISTINCTCOUNT([BeneID])"
+          },
+          {
+            "name": "Total Claims",
+            "expression": "COUNT([ClaimID])"
+          },
+          {
+            "name": "Total Reimbursed",
+            "expression": "SUM([InscClaimAmtReimbursed])"
+          },
+          {
+            "name": "Total Deductible",
+            "expression": "SUM([DeductibleAmtPaid])"
+          },
+          {
+            "name": "Average Claim Cost",
+            "expression": "AVERAGE([InscClaimAmtReimbursed])"
+          },
+          {
+            "name": "Fraud Providers",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([Provider]),",
+              "    DIM_FRAUD[PotentialFraud]=\"Yes\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Non Fraud Providers",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([Provider]),",
+              "    DIM_FRAUD[PotentialFraud]=\"No\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Non Fraud Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_FRAUD[PotentialFraud]=\"No\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Fraud Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_FRAUD[PotentialFraud]=\"Yes\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Fraud Claims",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNT([ClaimID]),",
+              "    DIM_FRAUD[PotentialFraud]=\"Yes\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Non Fraud Claims",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNT([ClaimID]),",
+              "    DIM_FRAUD[PotentialFraud]=\"No\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Fraud Reimbursed",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM([InscClaimAmtReimbursed]),",
+              "    DIM_FRAUD[PotentialFraud]=\"Yes\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Fraud Rate",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "[Fraud Claims],",
+              "[Total Claims]",
+              ")"
+            ]
+          },
+          {
+            "name": "Inpatient Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_FRAUD[Claim_Type]=\"IP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Outpatient Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_FRAUD[Claim_Type]=\"oP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Inpatient Claims",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNT([ClaimID]),",
+              "    DIM_FRAUD[Claim_Type]=\"IP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Outpatient Claims",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNT([ClaimID]),",
+              "    DIM_FRAUD[Claim_Type]=\"oP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Average Part A Months",
+            "expression": "AVERAGE([NoOfMonths_PartACov])"
+          },
+          {
+            "name": "Average Part B Months",
+            "expression": "AVERAGE([NoOfMonths_PartBCov])"
+          },
+          {
+            "name": "Avg IP Part A Months",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE([NoOfMonths_PartACov]),",
+              "    DIM_FRAUD[Claim_Type]=\"IP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Avg OP Part A Months",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE([NoOfMonths_PartACov]),",
+              "    DIM_FRAUD[Claim_Type]=\"oP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Avg IP Part B Months",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE([NoOfMonths_PartBCov]),",
+              "    DIM_FRAUD[Claim_Type]=\"IP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Avg OP Part B Months",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE([NoOfMonths_PartBCov]),",
+              "    DIM_FRAUD[Claim_Type]=\"oP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Inpatient cost",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "SUM([InscClaimAmtReimbursed]),",
+              "DIM_FRAUD[Claim_Type]=\"IP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Outpatient cost",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "SUM([InscClaimAmtReimbursed]),",
+              "DIM_FRAUD[Claim_Type]=\"oP\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Average Inpatient Cost",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Inpatient cost],",
+              "    [Inpatient Claims]",
+              ")"
+            ]
+          },
+          {
+            "name": "Inpatient Deductible",
+            "expression": [
+              "",
+              "",
+              "CALCULATE(",
+              "",
+              "    SUM([DeductibleAmtPaid]), ",
+              "",
+              "    DIM_FRAUD[Claim_Type]=\"IP\"",
+              "",
+              ")"
+            ]
+          },
+          {
+            "name": "Total Outpatient Deductible",
+            "expression": [
+              "",
+              "",
+              "CALCULATE(",
+              "",
+              "    SUM([DeductibleAmtPaid]), ",
+              "",
+              "    DIM_FRAUD[Claim_Type]=\"oP\"",
+              "",
+              ")"
+            ]
+          },
+          {
+            "name": "Diabetes Patients",
+            "expression": [
+              "",
+              "",
+              "CALCULATE(",
+              "",
+              "    DISTINCTCOUNT([BeneID]),",
+              "",
+              "    DIM_PATIENT[ChronicCond_Diabetes]=\"YES\"",
+              "",
+              ")"
+            ]
+          },
+          {
+            "name": "Heart Failure Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_Heartfailure]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Kidney Disease Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_KidneyDisease]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Renal Disease Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[RenalDiseaseIndicator]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Stroke Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_stroke]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Rheumatoid Arthritis Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_RheumatoidArthritis]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Osteoporosis Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_Osteoporasis]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Ischemic Heart Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_IschemicHeart]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Alzheimer Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_Alzheimer]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "COPD Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_ObstrPulmonary]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Depression Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_Depression]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Cancer Patients",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT([BeneID]),",
+              "    DIM_PATIENT[ChronicCond_Cancer]=\"YES\"",
+              ")"
+            ]
+          },
+          {
+            "name": "Average Outpatient Cost",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Outpatient cost],",
+              "    [Outpatient Claims]",
+              ")"
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[FACT_CLAIMS].*   FROM [dbo].[FACT_CLAIMS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FACT_CLAIMS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "6bf692c4-4872-489d-83a0-ce1c0647441b",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "ClaimEnd_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "isActive": false
+      },
+      {
+        "name": "8fe20c67-0363-4857-8ceb-fa2d635f56ad",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "Discharge_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "isActive": false
+      },
+      {
+        "name": "4e9adf60-b881-40ba-af67-7967f174c3da",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "Birth_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "isActive": false
+      },
+      {
+        "name": "b8b58943-a9e6-4454-825d-36570904248b",
+        "fromTable": "BRIDGE_CLAIM_DIAGNOSIS",
+        "fromColumn": "ClaimID",
+        "toTable": "FACT_CLAIMS",
+        "toColumn": "ClaimID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "1c8fe5e5-5a12-4e12-92d8-0a9e8ef0822f",
+        "fromTable": "BRIDGE_CLAIM_DIAGNOSIS",
+        "fromColumn": "DiagnosisKey",
+        "toTable": "DIM_DIAGNOSIS",
+        "toColumn": "DiagnosisKey",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "128f738b-2871-47a1-a2ef-167ad5333f58",
+        "fromTable": "BRIDGE_CLAIM_PROCEDURE",
+        "fromColumn": "ClaimID",
+        "toTable": "FACT_CLAIMS",
+        "toColumn": "ClaimID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "3eb3ae2d-1554-4854-9084-e384a5474416",
+        "fromTable": "BRIDGE_CLAIM_PROCEDURE",
+        "fromColumn": "ProcedureKey",
+        "toTable": "DIM_PROCEDURE",
+        "toColumn": "ProcedureKey",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "45294d98-a457-465b-af9b-c4d23ae8a959",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "ClaimStart_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "653c642a-501c-4273-8e20-f89eb5ab3f42",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "Admission_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "2b90632e-6dc9-48fe-8115-b3eabfc0aabf",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "Death_DateKey",
+        "toTable": "DIM_DATE",
+        "toColumn": "Date_key",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "58b4ed7f-cf8f-458d-af30-59f0fce81e2b",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "PatientKey",
+        "toTable": "DIM_PATIENT",
+        "toColumn": "PatientKey",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "9e6e054b-7526-42b4-b6f3-012d071c9fd3",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "PatientKey",
+        "toTable": "DIM_PHYSICIAN",
+        "toColumn": "PhysicianKey",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "a3a9bcc5-9b18-497e-ae08-fc25eb08a285",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "id_location",
+        "toTable": "DIM_LOCATION",
+        "toColumn": "id_location",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "7057351c-4079-44b2-a3fe-2939e131dff1",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "id_gc",
+        "toTable": "DIM_GEN_RAC",
+        "toColumn": "id_gc",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "2a54d1a8-392a-4833-9b95-fc4b12e5b6e0",
+        "fromTable": "FACT_CLAIMS",
+        "fromColumn": "id_Fraud",
+        "toTable": "DIM_FRAUD",
+        "toColumn": "id_Fraud",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

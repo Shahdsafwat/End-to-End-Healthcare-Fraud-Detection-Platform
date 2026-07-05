@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Data Connection"
+  DTS:DTSID="{3A2EF439-74ED-4F18-880A-46EA57A7F83A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Initial Catalog=DWH_Healthcare;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Final_Projrct_NTI-{3A2EF439-74ED-4F18-880A-46EA57A7F83A}Data Connection;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

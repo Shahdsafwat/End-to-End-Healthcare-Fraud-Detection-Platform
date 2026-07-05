@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Dim_ICD9.csv"
+  DTS:DTSID="{26FD2664-7C5B-4891-BCEC-EF6BDE729CEC}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="D:\projects_nti\end_to_end_pro\final_peoject\Dim_ICD9.csv" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
